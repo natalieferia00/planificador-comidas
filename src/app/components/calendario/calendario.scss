@@ -1,0 +1,62 @@
+.calendario-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  width: 100%;
+}
+
+.dia-card {
+  background: #ffffff;
+  border-radius: 25px;
+  padding: 20px;
+  border: 1px solid rgba(0,0,0,0.05);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+  transition: transform 0.2s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+  }
+
+  h3 {
+    margin: 0 0 15px 0;
+    font-size: 1.2rem;
+    color: #18181B;
+    border-bottom: 2px solid #F8C8DC;
+    display: inline-block;
+  }
+}
+
+.comidas-inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  .input-field {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    label {
+      font-size: 0.75rem;
+      font-weight: bold;
+      color: #999;
+      text-transform: uppercase;
+    }
+
+    input {
+      border: 1px solid #f0f0f0;
+      border-radius: 12px;
+      padding: 10px;
+      font-size: 0.9rem;
+      outline: none;
+      background: #fafafa;
+      transition: all 0.2s;
+
+      &:focus {
+        border-color: #F8C8DC;
+        background: white;
+        box-shadow: 0 0 0 3px rgba(248, 200, 220, 0.2);
+      }
+    }
+  }
+}

@@ -1,0 +1,29 @@
+<div class="lista-container">
+  <h2>Ingredientes</h2>
+
+  <div class="form-add">
+    <input type="text" [(ngModel)]="nuevoNombre" placeholder="Producto..." class="input-main">
+    <input type="number" [(ngModel)]="nuevoPrecio" placeholder="$" class="input-price">
+    <button (click)="agregarProducto()" class="btn-plus">+</button>
+  </div>
+
+  <div class="scroll-area">
+    @for (p of productos; track p.id) {
+      <div class="item-row" [class.done]="p.completado">
+        <div class="item-info" (click)="toggleCompletado(p)">
+          <span class="bullet"></span>
+          <span class="text">{{ p.nombre }}</span>
+        </div>
+        <div class="item-meta">
+          <span class="price" *ngIf="p.precio">{{ p.precio | currency }}</span>
+          <button (click)="eliminarProducto(p.id)" class="btn-del">×</button>
+        </div>
+      </div>
+    }
+  </div>
+
+  <div class="total-footer" *ngIf="productos.length > 0">
+    <span>Total:</span>
+    <strong>{{ obtenerTotal() | currency }}</strong>
+  </div>
+</div>

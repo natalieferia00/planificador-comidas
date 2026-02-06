@@ -1,0 +1,45 @@
+<div class="calendario-container">
+  @for (dia of diasSemana; track dia) {
+    <div class="dia-card">
+      <div class="dia-header">
+        <h3>{{ dia }}</h3>
+      </div>
+      
+      <div class="comidas-inputs">
+        <div class="input-row">
+          <div class="input-field">
+            <label>Desayuno</label>
+            <input type="text" 
+                   [value]="plan[dia]?.desayuno || ''" 
+                   (input)="notificarCambio(dia, 'desayuno', $event)" 
+                   placeholder="Ej: Avena...">
+          </div>
+          <div class="input-field">
+            <label>Almuerzo</label>
+            <input type="text" 
+                   [value]="plan[dia]?.almuerzo || ''" 
+                   (input)="notificarCambio(dia, 'almuerzo', $event)" 
+                   placeholder="Ej: Pollo...">
+          </div>
+        </div>
+
+        <div class="input-row">
+          <div class="input-field">
+            <label>Merienda</label>
+            <input type="text" 
+                   [value]="plan[dia]?.merienda || ''" 
+                   (input)="notificarCambio(dia, 'merienda', $event)" 
+                   placeholder="Ej: Fruta...">
+          </div>
+          <div class="input-field">
+            <label>Cena</label>
+            <input type="text" 
+                   [value]="plan[dia]?.cena || ''" 
+                   (input)="notificarCambio(dia, 'cena', $event)" 
+                   placeholder="Ej: Ensalada...">
+          </div>
+        </div>
+      </div>
+    </div>
+  }
+</div>
