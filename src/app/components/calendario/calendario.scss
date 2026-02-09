@@ -9,20 +9,68 @@
   background: #ffffff;
   border-radius: 25px;
   padding: 20px;
-  border: 1px solid rgba(0,0,0,0.05);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.02);
-  transition: transform 0.2s ease;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+  transition: all 0.3s ease;
 
   &:hover {
     transform: translateY(-5px);
   }
 
-  h3 {
-    margin: 0 0 15px 0;
-    font-size: 1.2rem;
-    color: #18181B;
-    border-bottom: 2px solid #F8C8DC;
-    display: inline-block;
+
+  &.editando {
+    border-color: #F8C8DC;
+    box-shadow: 0 8px 20px rgba(248, 200, 220, 0.3);
+    transform: scale(1.02);
+  }
+
+  .dia-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+
+    h3 {
+      margin: 0;
+      font-size: 1.2rem;
+      color: #18181B;
+      border-bottom: 2px solid #F8C8DC;
+    }
+  }
+}
+
+
+.acciones {
+  display: flex;
+  gap: 8px;
+
+  button {
+    border: none;
+    border-radius: 12px;
+    padding: 6px 12px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.2s;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  .btn-edit {
+    background: #f0f0f0;
+    color: #666;
+  }
+
+  .btn-save {
+    background: #F8C8DC;
+    color: white;
+  }
+
+  .btn-delete {
+    background: #ffebee;
+    color: #ff5252;
   }
 }
 
@@ -56,6 +104,15 @@
         border-color: #F8C8DC;
         background: white;
         box-shadow: 0 0 0 3px rgba(248, 200, 220, 0.2);
+      }
+
+
+      &:disabled {
+        background: transparent;
+        border-color: transparent;
+        color: #666;
+        cursor: default;
+        padding-left: 0;
       }
     }
   }

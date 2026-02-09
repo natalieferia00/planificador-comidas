@@ -1,42 +1,38 @@
 <div class="calendario-container">
   @for (dia of diasSemana; track dia) {
-    <div class="dia-card">
+    <div class="dia-card" [class.editando]="editandoDia === dia">
       <div class="dia-header">
         <h3>{{ dia }}</h3>
+        <div class="acciones">
+          @if (editandoDia !== dia) {
+            <button class="btn-edit" (click)="activarEdicion(dia)">Editar</button>
+            <button class="btn-delete" (click)="limpiarDia(dia)">Limpiar</button>
+          } @else {
+            <button class="btn-save" (click)="guardarCambios(dia)">Guardar</button>
+          }
+        </div>
       </div>
       
       <div class="comidas-inputs">
         <div class="input-row">
           <div class="input-field">
             <label>Desayuno</label>
-            <input type="text" 
-                   [value]="plan[dia]?.desayuno || ''" 
-                   (input)="notificarCambio(dia, 'desayuno', $event)" 
-                   placeholder="Ej: Avena...">
+            <input type="text" [(ngModel)]="tempPlan[dia].desayuno" [disabled]="editandoDia !== dia">
           </div>
           <div class="input-field">
             <label>Almuerzo</label>
-            <input type="text" 
-                   [value]="plan[dia]?.almuerzo || ''" 
-                   (input)="notificarCambio(dia, 'almuerzo', $event)" 
-                   placeholder="Ej: Pollo...">
+            <input type="text" [(ngModel)]="tempPlan[dia].almuerzo" [disabled]="editandoDia !== dia">
           </div>
         </div>
 
         <div class="input-row">
           <div class="input-field">
             <label>Merienda</label>
-            <input type="text" 
-                   [value]="plan[dia]?.merienda || ''" 
-                   (input)="notificarCambio(dia, 'merienda', $event)" 
-                   placeholder="Ej: Fruta...">
+            <input type="text" [(ngModel)]="tempPlan[dia].merienda" [disabled]="editandoDia !== dia">
           </div>
           <div class="input-field">
             <label>Cena</label>
-            <input type="text" 
-                   [value]="plan[dia]?.cena || ''" 
-                   (input)="notificarCambio(dia, 'cena', $event)" 
-                   placeholder="Ej: Ensalada...">
+            <input type="text" [(ngModel)]="tempPlan[dia].cena" [disabled]="editandoDia !== dia">
           </div>
         </div>
       </div>

@@ -6,14 +6,14 @@
 </header>
 
 <div class="dashboard-wrapper">
-  
+
   <aside class="sidebar">
     <div class="sidebar-header">
-  <h2 class="sidebar-title">
-    Nutre <br> <span style="color: #F8C8DC;">tu semana</span>
-  </h2>
-</div>
-   
+      <h2 class="sidebar-title">
+        Nutre <br> <span style="color: #F8C8DC;">tu semana</span>
+      </h2>
+    </div>
+
 
     <nav>
       <div class="nav-item" [class.active]="seccionActiva === 'planificador'" (click)="irASeccion('planificador')">
@@ -36,9 +36,7 @@
         <div class="widget-info">
           <h2>Planificador Semanal</h2>
         </div>
-        <app-calendario 
-          [plan]="plan" 
-          (cambio)="actualizarPlan($event.dia, $event.comida, $event.evento)">
+        <app-calendario [plan]="plan" (cambio)="actualizarPlan($event)">
         </app-calendario>
       </section>
 
